@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingDefaultResource"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/btn_rview_prods"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/item_img_view_order"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_cake_black"
+
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_title_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/btn_rview_order_confirm"
+                android:paddingLeft="10dp"
+                android:text="Title"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:id="@+id/item_category_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_title_order"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/btn_rview_order_reject"
+                android:text="Category"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/item_price_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_title_order"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/btn_rview_order_reject"
+                android:text="Price 0.0"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/btn_rview_order_confirm"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="7dp"
+                android:background="#EDBC27"
+                android:clickable="true"
+                android:text="Confirm" />
+
+            <Button
+                android:id="@+id/btn_rview_order_reject"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/btn_rview_order_confirm"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="7dp"
+                android:background="#F31B1B"
+                android:clickable="true"
+                android:text="Reject"
+                android:textColor="#fff" />
+
+
+        </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

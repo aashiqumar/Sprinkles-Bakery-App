@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.test">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
-        <activity android:name=".add_products"></activity>
+        <activity android:name=".rejected_orders"></activity>
+        <activity android:name=".confirmed_order" />
+        <activity android:name=".admin_order" />
+        <activity android:name=".client.client_cart" />
+        <activity android:name=".client.client_order" />
+        <activity android:name=".client.client_dashboard" />
+        <activity android:name=".products" />
+        <activity android:name=".add_products" />
         <activity android:name=".admin" />
         <activity android:name=".signup" />
         <activity

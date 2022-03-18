@@ -6,11 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context=".signup">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
 
         <LinearLayout
@@ -19,13 +21,25 @@
             android:layout_height="wrap_content">
 
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="4dp"
                 android:layout_height="wrap_content">
 
+                <Button
+                    android:id="@+id/btn_admin_return"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_return_arrow"/>
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add Products"
                     android:textColor="#000000"
@@ -37,41 +51,85 @@
 
                     />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Enter Your Login Info."
-                    android:textColor="#686868"
-                    android:gravity="center"
-                    android:textSize="15sp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="10dp"
-                    android:paddingBottom="10dp"
-                    />
 
             </LinearLayout>
-
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:background="@drawable/cake_upload_border"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/upload_img"
+                    android:paddingTop="10dp"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/ic_cake_upload" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="10dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="10dp"
+                android:orientation="vertical"
+                >
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_upload_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:drawableStart="@drawable/ic_upload"
+                    android:textStyle="bold"
+                    android:hint="Upload Image"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="#000"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:paddingTop="10dp"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="10dp"
+                android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:orientation="vertical"
                 >
 
 
                 <EditText
-                    android:id="@+id/txt_name"
+                    android:id="@+id/txt_product_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="15dp"
                     android:paddingBottom="10dp"
                     android:textColor="#000"
-                    android:hint="Name"
+                    android:hint="Cake Title"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:background="@drawable/login_edittext"
@@ -83,19 +141,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="vertical"
                 >
 
 
                 <EditText
-                    android:id="@+id/txt_email"
+                    android:id="@+id/txt_product_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="15dp"
                     android:paddingBottom="10dp"
-                    android:hint="Email"
+                    android:hint="Price"
+                    android:inputType="number"
                     android:textColor="#000"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
@@ -108,20 +167,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-
-                android:paddingRight="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="vertical"
                 >
 
 
                 <EditText
-                    android:id="@+id/txt_password"
+                    android:id="@+id/txt_product_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="15dp"
                     android:paddingBottom="10dp"
-                    android:hint="Password"
+                    android:hint="Category"
                     android:paddingLeft="20dp"
                     android:textColor="#000"
                     android:paddingRight="20dp"
@@ -132,33 +190,8 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                >
 
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_login_singup_page"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:gravity="center"
-                    android:paddingBottom="10dp"
-                    android:hint="Already Registered? Login Now"
-                    android:textColorHint="#0325FF"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:background="#00FFFFFF"
-                    />
-
-
-            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
@@ -175,10 +208,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:clickable="true"
-            android:id="@+id/btn_signup_page"
+            android:id="@+id/btn_save_products"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Sign Up"
+            android:hint="Save Product"
             android:textColorHint="#ffffff"
             android:background="@drawable/login_button_red"
 

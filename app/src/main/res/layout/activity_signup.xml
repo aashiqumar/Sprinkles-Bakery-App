@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="Sign Up"
             android:textColor="#000000"
             android:gravity="left"
             android:textSize="30sp"
@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter Your Login Info."
+            android:text="Register Your Details"
             android:textColor="#686868"
             android:gravity="left"
             android:textSize="15sp"

@@ -6,19 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context=".admin">
 
 
 
-        <LinearLayout
+        <RelativeLayout
             android:paddingTop="15dp"
             android:layout_width="match_parent"
             android:gravity="left"
+            android:orientation="horizontal"
             android:paddingLeft="10dp"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:text="SPRINKLES BAKERY"
@@ -26,7 +28,27 @@
                 android:textSize="25dp"
                 android:textStyle="bold"
                 />
-        </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="361dp">
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/admin_btn_logout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-233dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="38dp"
+
+                android:background="@drawable/ic_logout" />
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,14 +69,17 @@
                 />
         </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="20dp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -87,6 +112,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/txt_admin_order_total"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -101,136 +127,115 @@
 
         </androidx.cardview.widget.CardView>
 
-        <RelativeLayout
+
+
+
+
+        <LinearLayout
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="60dp">
+
+            <Button
+                android:id="@+id/btn_admin_view_all"
+                android:background="@drawable/login_button_red"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:textAlignment="textStart"
+                android:drawablePadding="10dp"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                android:drawableStart="@drawable/ic_bubble"
+                android:text="Your Products"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <Button
+                android:id="@+id/btn_admin_orders"
+                android:background="@drawable/login_button_red"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:textAlignment="textStart"
+                android:drawablePadding="10dp"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                android:drawableStart="@drawable/ic_orders"
+                android:text="Manage Orders"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="190dp"
-                android:layout_height="90dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="10dp"
-                app:cardBackgroundColor="#EDBC27"
-                app:cardCornerRadius="15dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:textAlignment="textStart"
+                android:drawablePadding="10dp"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:text="Curent Orders"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/admin_dash_rview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
 
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:paddingTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="58dp"
-                        android:src="@drawable/ic_cake_24"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:paddingTop="58dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Orders"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:textColor="#fff"
-                        android:textSize="20dp"/>
-
-                </LinearLayout>
-
-
-
-
-            </androidx.cardview.widget.CardView>
-
-            <RelativeLayout
-                android:layout_width="190dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="0dp">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="0dp"
-                    app:cardBackgroundColor="#EDBC27"
-                    app:cardCornerRadius="15dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:paddingTop="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="58dp"
-                            android:src="@drawable/ic_bubble"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:paddingTop="58dp"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Create"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textColor="#fff"
-                            android:textSize="20dp"/>
-
-                    </LinearLayout>
-
-
-
-
-                </androidx.cardview.widget.CardView>
-
-            </RelativeLayout>
-
-        </RelativeLayout>
 
 
 
     </LinearLayout>
+
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         >
 
         <androidx.appcompat.widget.AppCompatButton
-            android:clickable="true"
             android:id="@+id/dash_btn_add_products"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Add New Product"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:textColorHint="#ffffff"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/login_button_red"
+            android:clickable="true"
+            android:hint="Add New Product"
+            android:textColorHint="#ffffff"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
-            />
 
     </LinearLayout>
+
+
+
+
 
 </LinearLayout>

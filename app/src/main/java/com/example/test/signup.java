@@ -2,6 +2,7 @@ package com.example.test;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,11 +29,13 @@ import java.util.Map;
 public class signup extends AppCompatActivity {
 
     private EditText txt_email, txt_password, txt_name;
-    private Button btn_singup;
+    private AppCompatButton btn_singup, btn_login;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase real;
     private FirebaseFirestore firebaseFirestore;
     private FirebaseUser user;
+
+
 
 
 
@@ -46,6 +50,7 @@ public class signup extends AppCompatActivity {
         txt_password = findViewById(R.id.txt_password);
         txt_name = findViewById(R.id.txt_name);
         btn_singup = findViewById(R.id.btn_signup_page);
+        btn_login = findViewById(R.id.btn_login_singup_page);
 
         firebaseAuth = FirebaseAuth.getInstance();
         real = FirebaseDatabase.getInstance();
@@ -53,6 +58,14 @@ public class signup extends AppCompatActivity {
 
         //Client Login Code
         DatabaseReference myRef = real.getReference().child("users");
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(signup.this, login.class));
+            }
+        });
 
         btn_singup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,10 +97,17 @@ public class signup extends AppCompatActivity {
                                 user.put("Email", clientEmail);
                                 user.put("Name", clientName);
 
-                                myRef.child(firebaseAuth.getCurrentUser().getUid()).child("Name").setValue(clientName);
-                                myRef.child(firebaseAuth.getCurrentUser().getUid()).child("Email").setValue(clientEmail);
+                                FirebaseDatabase.getInstance().getReference("user").child(userId).push()
+                                        .setValue(user)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+
+                                            }
+                                        });
 
                                 Toast.makeText(getApplicationContext(), "Sucessfully Registered", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(signup.this, login.class));
 
 
                             }
