@@ -52,7 +52,7 @@ public class rejected_orders extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(rejected_orders.this, admin_order.class));
+                startActivity(new Intent(rejected_orders.this, admin_order_stuff.class));
             }
         });
 

@@ -1,4 +1,4 @@
-package com.example.test.client;
+package com.example.test;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,57 +14,31 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.test.R;
-import com.example.test.add_products_model;
+import com.example.test.client.OrderAdapter;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.ViewHolder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHolder> {
+public class fOrderAdapter extends FirebaseRecyclerAdapter<add_products_model, fOrderAdapter.myViewHolder> {
 
-    Context context;
-    ArrayList<add_products_model> list;
-
-    public OrderAdapter(Context context, ArrayList<add_products_model> list) {
-        this.context = context;
-        this.list = list;
+    public fOrderAdapter(FirebaseRecyclerOptions<add_products_model> options)
+    {
+        super(options);
     }
 
     @Override
-    public void onBindViewHolder(ImageViewHolder holder, int i) {
+    protected void onBindViewHolder(@NonNull myViewHolder holder, int i, add_products_model model) {
 
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference("orders");
-
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-
-                for (DataSnapshot datasnap : snapshot.getChildren())
-                {
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled( DatabaseError error) {
-
-            }
-        });
-
-        add_products_model model = list.get(i);
         holder.txt_title.setText(model.getTitle());
         holder.txt_price.setText(model.getPrice());
         holder.txt_category.setText(model.getCategory());
@@ -78,7 +52,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHol
 
 
 
-        holder.btn_confirm.setOnClickListener(new View.OnClickListener() {
+       holder.btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -103,7 +77,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHol
                             @Override
                             public void onSuccess(Void unused) {
 
-                                Toast.makeText(context.getApplicationContext(), "Order Confirmed.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(holder.txt_title.getContext(), "Order Confirmed.", Toast.LENGTH_SHORT).show();
 
                             }
                         })
@@ -111,7 +85,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHol
                             @Override
                             public void onFailure(@NonNull Exception e) {
 
-                                Toast.makeText(context.getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(holder.txt_title.getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
                         });
@@ -136,7 +111,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHol
                 map.put("uri", img);
 
 
-                String id = "";
 
                 FirebaseDatabase.getInstance().getReference("rejected_orders").push()
                         .setValue(map)
@@ -144,7 +118,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHol
                             @Override
                             public void onSuccess(Void unused) {
 
-
+                                FirebaseDatabase.getInstance().getReference("orders").child(getRef(i).getKey()).removeValue();
 
 
                             }
@@ -153,7 +127,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHol
                             @Override
                             public void onFailure(@NonNull Exception e) {
 
-                                Toast.makeText(context.getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(holder.txt_title.getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
                         });
@@ -161,46 +135,37 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHol
 
             }
         });
-
-
-
     }
 
     @NonNull
     @Override
-    public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+    public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rview_admin_order, parent, false);
-        return new ImageViewHolder(view);
-
+        return new myViewHolder(view);
     }
 
-    @Override
-    public int getItemCount() {
-        return list.size();
+    class myViewHolder extends RecyclerView.ViewHolder{
+
+        TextView txt_title, txt_price, txt_category;
+        ImageView img_view;
+        Button btn_confirm, btn_reject;
+        LinearLayout btn_onclick;
+
+
+        public myViewHolder(View itemView) {
+            super(itemView);
+
+            txt_title = itemView.findViewById(R.id.item_title_order);
+            txt_price = itemView.findViewById(R.id.item_price_order);
+            txt_category = itemView.findViewById(R.id.item_category_order);
+            img_view = itemView.findViewById(R.id.item_img_view_order);
+            btn_confirm = itemView.findViewById(R.id.btn_rview_order_confirm);
+            btn_reject = itemView.findViewById(R.id.btn_rview_order_reject);
+
+            //Client Side
+            btn_onclick = itemView.findViewById(R.id.btn_rview_prods);
+        }
     }
 
 
-    public static class ImageViewHolder extends RecyclerView.ViewHolder{
-       TextView txt_title, txt_price, txt_category;
-       ImageView img_view;
-       Button btn_confirm, btn_reject;
-       LinearLayout btn_onclick;
-
-       public ImageViewHolder (View itemView){
-           super(itemView);
-
-           txt_title = itemView.findViewById(R.id.item_title_order);
-           txt_price = itemView.findViewById(R.id.item_price_order);
-           txt_category = itemView.findViewById(R.id.item_category_order);
-           img_view = itemView.findViewById(R.id.item_img_view_order);
-           btn_confirm = itemView.findViewById(R.id.btn_rview_order_confirm);
-           btn_reject = itemView.findViewById(R.id.btn_rview_order_reject);
-
-           //Client Side
-           btn_onclick = itemView.findViewById(R.id.btn_rview_prods);
-
-
-
-       }
-   }
 }

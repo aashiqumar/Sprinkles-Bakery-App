@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin">
+    tools:context=".admin_order_stuff">
 
     <Button
-        android:id="@+id/btn_m_orders_return"
+        android:id="@+id/btn_m_orders_return_stuff"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
@@ -24,11 +24,11 @@
         android:layout_marginTop="8dp"
         android:text="Manage Orders"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_m_orders_return"
+        app:layout_constraintStart_toEndOf="@+id/btn_m_orders_return_stuff"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rview_admin_order"
+        android:id="@+id/rview_admin_order_stuff"
         android:layout_width="402dp"
         android:layout_height="604dp"
         android:layout_marginBottom="16dp"
@@ -36,11 +36,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_confirmed_orders"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_confirmed_orders_stuff"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btn_confirmed_orders"
+        android:id="@+id/btn_confirmed_orders_stuff"
         android:layout_width="183dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/btn_rejected_orders"
+        android:id="@+id/btn_rejected_orders_stuff"
         android:layout_width="183dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -61,6 +61,6 @@
         android:text="Rejected Orders"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_confirmed_orders"
+        app:layout_constraintStart_toEndOf="@+id/btn_confirmed_orders_stuff"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

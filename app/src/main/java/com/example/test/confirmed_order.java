@@ -51,7 +51,7 @@ public class confirmed_order extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(confirmed_order.this, admin_order.class));
+                startActivity(new Intent(confirmed_order.this, admin_order_stuff.class));
             }
         });
 

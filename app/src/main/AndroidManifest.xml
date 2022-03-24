@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
-        <activity android:name=".rejected_orders"></activity>
+        <activity android:name=".admin_order_stuff"></activity>
+        <activity android:name=".rejected_orders" />
         <activity android:name=".confirmed_order" />
         <activity android:name=".admin_order" />
         <activity android:name=".client.client_cart" />

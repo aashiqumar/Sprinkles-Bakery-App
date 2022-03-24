@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.test.client.OrderAdapter;
 import com.example.test.client.client_cart;
 import com.example.test.client.client_dashboard;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -33,9 +34,9 @@ public class admin extends AppCompatActivity {
 
     private Button btn_add, btn_logout, btn_orders;
     private Button btn_all;
-    private RecyclerView rview;
+    private RecyclerView rview, rview2;
     private TextView txt_total;
-    private OrderAdapter adapter;
+    private fOrderAdapter adapter;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference db, ref;
     private ArrayList<add_products_model> list;
@@ -56,11 +57,12 @@ public class admin extends AppCompatActivity {
         btn_orders = findViewById(R.id.btn_admin_orders);
         txt_total = findViewById(R.id.txt_admin_order_total);
 
+
         btn_orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(admin.this, admin_order.class));
+                startActivity(new Intent(admin.this, admin_order_stuff.class));
             }
         });
 
@@ -92,23 +94,17 @@ public class admin extends AppCompatActivity {
         });
 
         rview.setLayoutManager(new LinearLayoutManager(this));
-        rview.setHasFixedSize(true);
 
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseRecyclerOptions<add_products_model> options =
+                new FirebaseRecyclerOptions.Builder<add_products_model>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference("orders"), add_products_model.class)
+                        .build();
 
-        String userid = FirebaseAuth.getInstance().getUid();
-
-        db = firebaseDatabase.getReference("orders");
-        db.keepSynced(true);
-
-        list = new ArrayList<>();
-        tlist = new ArrayList<add_products_model>();
-
-
-        adapter = new OrderAdapter(this, list);
-
+        adapter = new fOrderAdapter(options);
         rview.setAdapter(adapter);
+
+
 
         ref = FirebaseDatabase.getInstance().getReference("orders");
         ref.keepSynced(true);
@@ -132,74 +128,17 @@ public class admin extends AppCompatActivity {
             }
         });
 
-        db.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot snapshot, String previousChildName) {
-                add_products_model sm = snapshot.getValue(add_products_model.class);
+    }
 
-                list.add(sm);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
 
-                adapter.notifyDataSetChanged();
-
-                if (!snapshot.exists())
-                {
-                    Toast.makeText(getApplicationContext(), "No DATA", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot snapshot, String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot snapshot, String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-
-            }
-        });
-
-//        db.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot snapshot) {
-//
-//
-//                int sum = 0;
-//
-//                for (DataSnapshot datasnap : snapshot.getChildren())
-//                {
-//
-//
-//
-//                    add_products_model sm = datasnap.getValue(add_products_model.class);
-//                    list.add(sm);
-//
-//                    adapter.notifyDataSetChanged();
-//
-//                    if (!snapshot.exists())
-//                    {
-//                        Toast.makeText(getApplicationContext(), "No DATA", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }

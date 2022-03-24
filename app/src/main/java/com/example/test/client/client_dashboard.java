@@ -59,27 +59,8 @@ public class client_dashboard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                builder.setTitle("Are You Sure?");
-                builder.setMessage("You Will Be Logged Out of App Now");
-
-                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        Toast.makeText(getApplicationContext(), "Sucessfully Logged Out", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(client_dashboard.this, login.class));
-                    }
-                });
-
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-
-
-                    }
-                });
+                Toast.makeText(getApplicationContext(), "Sucessfully Logged Out", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(client_dashboard.this, login.class));
             }
         });
 
