@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Confirmed Orders"
+        android:text="Rejected Orders"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/btn_r_orders_return"
         app:layout_constraintTop_toTopOf="parent" />

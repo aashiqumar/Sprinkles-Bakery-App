@@ -134,13 +134,15 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ImageViewHol
                 map.put("category", category);
                 map.put("uri", img);
 
-                FirebaseDatabase.getInstance().getReference("rejected_orders").child(userid).push()
+                FirebaseDatabase.getInstance().getReference("rejected_orders").push()
                         .setValue(map)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
 
                                 Toast.makeText(context.getApplicationContext(), "Order Rejected.", Toast.LENGTH_SHORT).show();
+
+                                FirebaseDatabase.getInstance().getReference("orders").child(list.get(i).getTitle()).removeValue();
 
                             }
                         })
