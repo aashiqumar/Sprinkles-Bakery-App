@@ -58,15 +58,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp">
-
-                <ImageView
-
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
-                    android:src="@drawable/offer" />
-
-            </LinearLayout>
+                android:paddingBottom="10dp"/>
 
 
 
@@ -111,6 +103,7 @@
                     android:paddingTop="15dp"
                     android:paddingBottom="10dp"
                     android:hint="Password"
+                    android:inputType="textPassword"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:background="@drawable/login_edittext"
@@ -153,9 +146,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:paddingTop="10dp"
+        android:paddingTop="30dp"
         android:paddingBottom="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"

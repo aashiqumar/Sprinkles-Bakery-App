@@ -75,17 +75,7 @@ public class signup extends AppCompatActivity {
                 String clientPass = txt_password.getText().toString();
                 String clientName = txt_name.getText().toString();
 
-                if (clientEmail.isEmpty() || clientPass.isEmpty() || clientName.isEmpty())
-                {
-                    Toast.makeText(getApplicationContext(), "All Fields Are Required", Toast.LENGTH_SHORT).show();
-                }
 
-                else if (clientPass.length()<5)
-                {
-                    Toast.makeText(getApplicationContext(), "Password Should atleast Contain 6 Characters", Toast.LENGTH_SHORT).show();
-                }
-
-                else{
                     firebaseAuth.createUserWithEmailAndPassword(clientEmail, clientPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -119,7 +109,12 @@ public class signup extends AppCompatActivity {
 
                         }
                     });
-                }
+
+
+
+
+
+
             }
         });
 
