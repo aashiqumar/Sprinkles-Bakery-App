@@ -62,15 +62,30 @@
                 android:paddingTop="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:background="@drawable/cake_upload_border"
                 android:paddingBottom="10dp">
 
-                <ImageView
-                    android:id="@+id/upload_img"
-                    android:paddingTop="10dp"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:src="@drawable/ic_cake_upload" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cake_upload_border"
+                    >
+
+                    <ImageView
+                        android:id="@+id/upload_img"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="89dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="89dp"
+                        android:layout_marginBottom="0dp"
+                        android:paddingTop="10dp"
+                        android:src="@drawable/ic_cake_upload" />
+
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -99,7 +114,7 @@
                     android:hint="Upload Image"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:background="#000"
+                    android:background="#4D8FF3"
                     />
 
                 <ProgressBar
@@ -179,7 +194,9 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="15dp"
                     android:paddingBottom="10dp"
-                    android:hint="Category"
+                    android:hint="Cup Cakes"
+                    android:editable="false"
+                    android:inputType="none"
                     android:paddingLeft="20dp"
                     android:textColor="#000"
                     android:paddingRight="20dp"

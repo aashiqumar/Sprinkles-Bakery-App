@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:text="SPRINKLES BAKERY"
-                android:textColor="#EDBC27"
+                android:textColor="#478DF6"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 />
@@ -84,7 +84,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:cardBackgroundColor="#EDBC27"
+            app:cardBackgroundColor="#4D8FF3"
             app:cardCornerRadius="15dp">
 
 
@@ -131,48 +131,54 @@
 
 
 
-        <LinearLayout
+        <RelativeLayout
             android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+
+            >
 
             <Button
                 android:id="@+id/btn_admin_view_all"
-                android:background="@drawable/login_button_red"
-                android:layout_width="match_parent"
-                android:paddingLeft="10dp"
-                android:textAlignment="textStart"
-                android:drawablePadding="10dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textStyle="bold"
-                android:textColor="#FFF"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/login_button_red"
                 android:drawableStart="@drawable/ic_bubble"
-                android:text="Your Products"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:paddingTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp">
+                android:drawablePadding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingEnd="20dp"
+                android:text="Your Products"
+                android:textAlignment="textStart"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_admin_orders"
-                android:background="@drawable/login_button_red"
-                android:layout_width="match_parent"
-                android:paddingLeft="10dp"
-                android:textAlignment="textStart"
-                android:drawablePadding="10dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textStyle="bold"
-                android:textColor="#FFF"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/login_button_red"
                 android:drawableStart="@drawable/ic_orders"
-                android:text="Manage Orders"/>
+                android:drawablePadding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingEnd="20dp"
+                android:text="Manage Orders"
+                android:textAlignment="textStart"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
 
-        </LinearLayout>
+        </RelativeLayout>
+
+
 
         <LinearLayout
-            android:paddingTop="10dp"
+            android:paddingTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

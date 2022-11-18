@@ -51,13 +51,14 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ImageViewH
                 .error(R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.img_view);
 
+        // Client Entire Card Button
         holder.btn_onclick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.txt_title.getContext())
                         .setContentHolder(new ViewHolder(R.layout.activity_client_order))
-                        .setExpanded(true, 1000)
+                        .setExpanded(true, 1200)
                         .create();
 
                 TextView ctitle, cprice, ccategory;
@@ -71,6 +72,84 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ImageViewH
                 ccategory = view.findViewById(R.id.txt_order_category);
                 c_img = view.findViewById(R.id.img_order_cake);
                 btn_order = view.findViewById(R.id.btn_order_submit);
+
+                ctitle.setText(model.getTitle());
+                cprice.setText(model.getPrice());
+                ccategory.setText(model.getCategory());
+
+                Glide.with(c_img.getContext())
+                        .load(model.getUri())
+                        .placeholder(R.drawable.common_google_signin_btn_icon_dark)
+                        .centerCrop()
+                        .error(R.drawable.common_google_signin_btn_icon_dark_normal)
+                        .into(c_img);
+
+                btn_order.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        String userid = FirebaseAuth.getInstance().getUid();
+
+                        String title = ctitle.getText().toString();
+                        String price = cprice.getText().toString();
+                        String orderid = userid.toString();
+                        String category = ccategory.getText().toString();
+                        String img = model.getUri().toString();
+
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("title", title);
+                        map.put("price", price);
+                        map.put("category", category);
+                        map.put("uri", img);
+
+                        FirebaseDatabase.getInstance().getReference("orders").push()
+                                .setValue(map)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+
+                                        Toast.makeText(context.getApplicationContext(), "Order Sucessfull.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context.getApplicationContext(), "A Call For Confirmation Will Take Place Soon", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                        Toast.makeText(context.getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+                    }
+                });
+
+                dialogPlus.show();
+
+            }
+        });
+
+        // Client Order Button
+        holder.btn_view_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final DialogPlus dialogPlus = DialogPlus.newDialog(holder.txt_title.getContext())
+                        .setContentHolder(new ViewHolder(R.layout.activity_client_order))
+                        .setExpanded(true, 1200)
+                        .create();
+
+                TextView ctitle, cprice, ccategory;
+                ImageView c_img;
+                Button btn_order;
+
+                View view1 = dialogPlus.getHolderView();
+
+                ctitle = view1.findViewById(R.id.txt_order_title);
+                cprice = view1.findViewById(R.id.txt_order_price);
+                ccategory = view1.findViewById(R.id.txt_order_category);
+                c_img = view1.findViewById(R.id.img_order_cake);
+                btn_order = view1.findViewById(R.id.btn_order_submit);
 
                 ctitle.setText(model.getTitle());
                 cprice.setText(model.getPrice());
@@ -146,7 +225,7 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ImageViewH
     public static class ImageViewHolder extends RecyclerView.ViewHolder{
        TextView txt_title, txt_price, txt_category;
        ImageView img_view;
-       Button btn_delete;
+       Button btn_delete, btn_view_order;
        LinearLayout btn_onclick;
 
        public ImageViewHolder (View itemView){
@@ -160,6 +239,8 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ImageViewH
 
            //Client Side
            btn_onclick = itemView.findViewById(R.id.btn_rview_prods);
+           btn_view_order = itemView.findViewById(R.id.btn_place_order);
+
 
        }
    }

@@ -29,38 +29,41 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rview_admin_order"
-        android:layout_width="402dp"
-        android:layout_height="604dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="404dp"
+        android:layout_height="541dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_confirmed_orders"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_confirmed_orders"
-        android:layout_width="183dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="#89DA06"
-        android:text="Confirmed Orders"
+        android:layout_width="161dp"
+        android:layout_height="107dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_button_red"
+        android:text="Confirmed \n Orders"
+        android:textColor="#fff"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/btn_rejected_orders"
-        android:layout_width="183dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:background="#F31B1B"
+        android:layout_width="161dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_button_red"
+        android:paddingLeft="0dp"
+        android:text="Rejected \nOrders"
         android:textColor="#fff"
-        android:text="Rejected Orders"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toEndOf="@+id/btn_confirmed_orders"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

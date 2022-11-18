@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".client.client_order">
+    tools:context=".client.client_order"
+    android:orientation="vertical">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,6 +22,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +30,8 @@
 
             <ImageView
                 android:id="@+id/img_order_cake"
-                android:layout_width="383dp"
-                android:layout_height="310dp"
+                android:layout_width="310dp"
+                android:layout_height="280dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/cake_upload_border"
                 android:padding="20dp"
@@ -42,11 +45,12 @@
                 android:id="@+id/txt_order_topic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="256dp"
-                android:text="Order"
-                android:textSize="30sp"
+                android:text="Order Now"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/btn_order_return"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +74,7 @@
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintHorizontal_bias="0.088"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/img_order_cake" />
 
@@ -84,7 +88,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.041"
+                app:layout_constraintHorizontal_bias="0.325"
                 app:layout_constraintStart_toEndOf="@+id/txt_order_title3"
                 app:layout_constraintTop_toBottomOf="@+id/txt_order_title" />
 
@@ -97,7 +101,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.173"
+                app:layout_constraintHorizontal_bias="0.329"
                 app:layout_constraintStart_toEndOf="@+id/txt_order_title3"
                 app:layout_constraintTop_toBottomOf="@+id/txt_order_price" />
 
@@ -105,7 +109,7 @@
                 android:id="@+id/txt_order_title3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="1dp"
                 android:text="Price"
                 android:textColor="#5A5959"
@@ -118,7 +122,7 @@
                 android:id="@+id/txt_order_title4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="40dp"
                 android:text="Category"
                 android:textColor="#5A5959"
                 android:textSize="20sp"
@@ -126,23 +130,42 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_order_title3" />
 
-            <Button
-                android:id="@+id/btn_order_submit"
-                android:layout_width="384dp"
-                android:layout_height="51dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/login_button_red"
-                android:text="Order Cup Cake"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.444"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_order_price" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/btn_order_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="49dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/login_button_red"
+            android:paddingLeft="0dp"
+            android:paddingRight="20dp"
+            android:text="Order Cup Cake"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="538dp" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

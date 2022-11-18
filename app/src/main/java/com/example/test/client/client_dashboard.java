@@ -66,7 +66,7 @@ public class client_dashboard extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        db = firebaseDatabase.getReference("cupcakes").child("classic");
+        db = firebaseDatabase.getReference("cupcakes").child("Cup Cakes");
         db.keepSynced(true);
 
         list = new ArrayList<>();

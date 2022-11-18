@@ -83,7 +83,7 @@ public class add_products extends AppCompatActivity {
 
 
 
-        DatabaseReference myRef = database.getReference().child("cupcakes").child("classic").push();
+        DatabaseReference myRef = database.getReference().child("cupcakes").child("Cup Cakes").push();
 
 
 
