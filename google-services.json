@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "1050139497804",
-    "firebase_url": "https://sprinklesbakeryapp-default-rtdb.firebaseio.com",
-    "project_id": "sprinklesbakeryapp",
-    "storage_bucket": "sprinklesbakeryapp.appspot.com"
+    "project_number": "531360422028",
+    "firebase_url": "https://hospitalmanagement-15eb4-default-rtdb.firebaseio.com",
+    "project_id": "hospitalmanagement-15eb4",
+    "storage_bucket": "hospitalmanagement-15eb4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1050139497804:android:585918ab6c54ccb8052be9",
+        "mobilesdk_app_id": "1:531360422028:android:870566d02a7cb9b0cac3a9",
         "android_client_info": {
           "package_name": "com.example.test"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1050139497804-tadrlsfouf50so73e8imvs07kpdbf7dv.apps.googleusercontent.com",
+          "client_id": "531360422028-ausa0lu4n98r95ld6ugt7qfeicncfd7p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.test",
-            "certificate_hash": "76404defd76088df24919757a472c3b839914d8b"
+            "certificate_hash": "acc7b2d479403b598126b74a0838f2732434afae"
           }
         },
         {
-          "client_id": "1050139497804-iutsog6hqgru7rnd2tsja19pen4cqucj.apps.googleusercontent.com",
+          "client_id": "531360422028-hc73mct79b8rfqh3lt3utgc0m930o9ao.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDxMGN8Q4ULtM8ViCAYz6id7cRMyx-78pI"
+          "current_key": "AIzaSyD0CqnJQYkvAzk4nhqnJK8oC3PPDrCUs5o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1050139497804-iutsog6hqgru7rnd2tsja19pen4cqucj.apps.googleusercontent.com",
+              "client_id": "531360422028-hc73mct79b8rfqh3lt3utgc0m930o9ao.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
