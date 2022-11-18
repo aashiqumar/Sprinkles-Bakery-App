@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1050139497804",
+    "firebase_url": "https://sprinklesbakeryapp-default-rtdb.firebaseio.com",
+    "project_id": "sprinklesbakeryapp",
+    "storage_bucket": "sprinklesbakeryapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050139497804:android:585918ab6c54ccb8052be9",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050139497804-tadrlsfouf50so73e8imvs07kpdbf7dv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.test",
+            "certificate_hash": "76404defd76088df24919757a472c3b839914d8b"
+          }
+        },
+        {
+          "client_id": "1050139497804-iutsog6hqgru7rnd2tsja19pen4cqucj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxMGN8Q4ULtM8ViCAYz6id7cRMyx-78pI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050139497804-iutsog6hqgru7rnd2tsja19pen4cqucj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
